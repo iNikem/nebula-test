@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'nebula.release' version '13.0.0'
-    id 'maven-publish'
+    id 'nebula.nebula-bintray' version '7.3.0'
 }
 
 group 'org.example'
@@ -10,17 +10,23 @@ repositories {
     mavenCentral()
 }
 
-publishing {
-    repositories {
-        maven {
-            url = "$rootDir/build/repo"
-        }
-    }
-    publications {
-        maven(MavenPublication) {
-            from components.java
-        }
-    }
-}
+//publishing {
+//    repositories {
+//        maven {
+//            url = "$rootDir/build/repo"
+//        }
+//    }
+//    publications {
+//        maven(MavenPublication) {
+//            from components.java
+//        }
+//    }
+//}
+//
+//postRelease.dependsOn publish
 
-postRelease.dependsOn publish
+bintray {
+    user = "iNikem"
+    apiKey = "4d1be9fc3302b7125c08a3dc97201a1ab3772599b84e5c7511744123735a2492"
+//    pkgName = 'opentelemetry-auto-instr-java'
+}
