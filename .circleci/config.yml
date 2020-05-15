@@ -126,7 +126,7 @@ workflows:
               ignore: /.*/
             tags:
               # Only for major and minor releases
-              only: /^v.*0$/
+              only: /^v.*\.0$/
   patch_release:
     jobs:
       - patch_release:
@@ -135,4 +135,4 @@ workflows:
               only: /\d+\.\d+\.x$/
             tags:
               # Ignore just created branches due to new tagged release
-              ignore: /^v.*0$/
+              ignore: /.*/
