@@ -89,6 +89,11 @@ jobs:
             - "f2:fe:62:e0:a3:e8:74:9d:78:6f:4a:f6:12:0e:2b:e8"
 
       - checkout
+      - run: |
+          if [[ $(git tag --points-at HEAD | grep "^v") ]]; then
+              echo "Don't make patch release on commit which already has version tag"
+              circleci-agent step halt
+          fi
 
       # Download and cache dependencies
       - restore_cache:
