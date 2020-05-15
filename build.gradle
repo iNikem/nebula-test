@@ -28,7 +28,7 @@ bintray {
         name = 'nebula-test'
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/open-telemetry/opentelemetry-auto-instr-java'
-        userOrg = 'open-telemetry'
+        userOrg = 'nikem-test'
 
         githubRepo = 'iNikem/nebula-test'
 
