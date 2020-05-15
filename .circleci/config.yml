@@ -127,8 +127,6 @@ workflows:
             tags:
               # Only for major and minor releases
               only: /^v.*\.0$/
-  patch_release:
-    jobs:
       - patch_release:
           filters:
             branches:
