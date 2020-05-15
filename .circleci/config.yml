@@ -103,7 +103,11 @@ workflows:
   version: 2
   build:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              ignore: /\d+\.\d+\.x$/
+
   hourly:
     triggers:
       - schedule:
@@ -128,4 +132,4 @@ workflows:
       - patch_release:
           filters:
             branches:
-              only: /\d+\.\d+\.\d+/
+              only: /\d+\.\d+\.x$/
