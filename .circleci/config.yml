@@ -133,4 +133,4 @@ workflows:
               only: /\d+\.\d+\.x$/
             tags:
               # Ignore just created branches due to new tagged release
-              ignore: /.*/
+              only: /^$/
