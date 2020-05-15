@@ -67,7 +67,7 @@ jobs:
       - run:
           # Create and push new branch with name equal to tag name without 'v' prefix
           command: |
-            BRANCH_NAME=${CIRCLE_TAG/v/}
+            BRANCH_NAME=$(echo $CIRCLE_TAG | sed s/v// | sed s/0$/x/)
             git checkout -b $BRANCH_NAME
             git push origin $BRANCH_NAME
             echo "$BRANCH_NAME created and pushed"
