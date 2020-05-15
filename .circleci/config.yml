@@ -133,3 +133,6 @@ workflows:
           filters:
             branches:
               only: /\d+\.\d+\.x$/
+            tags:
+              # Ignore just created branches due to new tagged release
+              ignore: /^v.*0$/
