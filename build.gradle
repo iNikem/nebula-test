@@ -1,7 +1,6 @@
 plugins {
     id 'java'
     id 'nebula.release' version '13.0.0'
-    id 'nebula.nebula-bintray-publishing' version '7.3.0'
 }
 
 group 'org.example'
@@ -10,23 +9,29 @@ repositories {
     mavenCentral()
 }
 
-//publishing {
-//    repositories {
-//        maven {
-//            url = "$rootDir/build/repo"
-//        }
-//    }
-//    publications {
-//        maven(MavenPublication) {
-//            from components.java
-//        }
-//    }
-//}
-//
-//postRelease.dependsOn publish
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
 
 bintray {
-    user = "iNikem"
-    apiKey = "4d1be9fc3302b7125c08a3dc97201a1ab3772599b84e5c7511744123735a2492"
-//    pkgName = 'opentelemetry-auto-instr-java'
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+    publications = ['maven']
+    pkg {
+        repo = 'maven'
+        name = 'nebula-test'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/open-telemetry/opentelemetry-auto-instr-java'
+        userOrg = 'open-telemetry'
+
+        githubRepo = 'iNikem/nebula-test'
+
+        version {
+            name = project.version
+        }
+    }
 }
