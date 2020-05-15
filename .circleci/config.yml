@@ -128,4 +128,4 @@ workflows:
       - patch_release:
           filters:
             branches:
-              only: /\d+\.\d+\.\d+/
+              only: /\d+\.\d+\.x$/
